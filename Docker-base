@@ -1,0 +1,18 @@
+FROM golang:alpine as base
+
+# Set necessary environmet variables needed for our image
+ENV GO111MODULE=on \
+    CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
+
+# Move to working directory /build
+WORKDIR /build
+
+RUN go get github.com/aws/aws-sdk-go
+RUN go get github.com/gin-gonic/gin
+RUN go get github.com/go-git/go-git/v5
+RUN go get github.com/google/go-github/v30
+RUN go get github.com/joho/godotenv
+RUN go get gopkg.in/src-d/go-git.v4
+

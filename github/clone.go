@@ -24,9 +24,10 @@ func Clone(c *gin.Context) (*github.PullRequestEvent, error) {
 	}
 
 	fmt.Println("+++++++++++++Clone++++++++++++++++++++")
+
 	repo, err := git.PlainClone("./repo", false, &git.CloneOptions{
-		//URL: prEvent.GetRepo().GetCloneURL(),
-		URL:      "https://github.com/razzkumar/ftodo",
+		URL: prEvent.GetRepo().GetCloneURL(),
+		//URL:      "https://github.com/razzkumar/ftodo",
 		Progress: os.Stderr,
 		Auth: &ghhttp.BasicAuth{
 			Username: "razzkumar",
@@ -35,9 +36,11 @@ func Clone(c *gin.Context) (*github.PullRequestEvent, error) {
 	})
 
 	if err != nil {
+		fmt.Println("Error===============")
 		return nil, err
 	}
 
+	fmt.Println("======================Not Reached=================")
 	files, err := ioutil.ReadDir("./repo")
 
 	if err != nil {

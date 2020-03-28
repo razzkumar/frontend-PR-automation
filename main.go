@@ -19,7 +19,7 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"Name":    "ghWebHook",
-			"version": "0.0.3",
+			"version": "0.0.4",
 		})
 	})
 	router.POST("/webhook", webhook.Handler())

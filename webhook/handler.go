@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/razzkumar/sfebuild-tool/deployment"
-	"github.com/razzkumar/sfebuild-tool/github"
+	gh "github.com/razzkumar/sfebuild-tool/github"
 	"github.com/razzkumar/sfebuild-tool/logger"
 )
 

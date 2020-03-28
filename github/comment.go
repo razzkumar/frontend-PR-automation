@@ -13,13 +13,18 @@ import (
 func Comment(prEvent *github.PullRequestEvent, url string) {
 	repo := prEvent.GetRepo().Name
 	fmt.Println(repo)
+
 	owner := prEvent.GetRepo().GetOwner().GetLogin()
 	fmt.Println(owner)
+
 	ctx := context.Background()
+
 	prEvent.PullRequest.GetComments()
+
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: utils.LoadEnv("GH_ACCSS_TOKEN")},
 	)
+
 	tc := oauth2.NewClient(ctx, ts)
 
 	client := github.NewClient(tc)
